@@ -66,6 +66,30 @@ p { margin: 0 0 1em; }
 .pill--glass { background: rgba(255, 255, 255, .1); color: var(--cream); border-color: rgba(255, 255, 255, .3); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .pill--glass:hover { background: rgba(255, 255, 255, .2); }
 .pill--sm { min-height: 42px; padding: 0 18px; font-size: .92rem; }
+
+/* Свечение и волна на кнопках */
+.pill { position: relative; overflow: hidden; isolation: isolate; transition: transform .2s, background .2s, color .2s, box-shadow .35s; }
+.pill > * { position: relative; z-index: 2; }
+/* Световая волна: блик раз в несколько секунд проходит по кнопке */
+.pill::after { content: ""; position: absolute; inset: -2px; z-index: 1; pointer-events: none; transform: translateX(-130%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 236, 200, .55) 50%, transparent 100%); animation: pill-wave 4.5s ease-in-out infinite; }
+.pill--light::after { background: linear-gradient(90deg, transparent 0%, rgba(230, 184, 116, .55) 50%, transparent 100%); }
+.pill--glass::after { animation-delay: 1.2s; opacity: .7; }
+.pill:hover::after { animation-duration: 1.6s; }
+@keyframes pill-wave { 0%, 55% { transform: translateX(-130%) skewX(-18deg); } 100% { transform: translateX(130%) skewX(-18deg); } }
+/* Свечение: мягкое «дыхание» у главных кнопок и яркое при наведении */
+.pill--light { box-shadow: 0 0 0 1px rgba(230, 184, 116, .35), 0 6px 22px rgba(230, 184, 116, .28); animation: pill-glow 3.2s ease-in-out infinite; }
+.pill--dark { box-shadow: 0 6px 22px rgba(200, 146, 74, .25); animation: pill-glow-dark 3.2s ease-in-out infinite; }
+.pill--light:hover { box-shadow: 0 0 0 1px rgba(230, 184, 116, .7), 0 10px 36px rgba(230, 184, 116, .6); animation: none; }
+.pill--dark:hover { box-shadow: 0 10px 34px rgba(200, 146, 74, .5); animation: none; }
+.pill--glass:hover { box-shadow: 0 0 0 1px rgba(230, 184, 116, .5), 0 8px 28px rgba(230, 184, 116, .35); }
+@keyframes pill-glow { 50% { box-shadow: 0 0 0 1px rgba(230, 184, 116, .55), 0 8px 32px rgba(230, 184, 116, .5); } }
+@keyframes pill-glow-dark { 50% { box-shadow: 0 8px 30px rgba(200, 146, 74, .45); } }
+/* Волна от нажатия (кружок создаёт script.js) */
+.ripple { position: absolute; z-index: 1; border-radius: 50%; pointer-events: none; transform: scale(0); opacity: .55;
+  background: radial-gradient(circle, rgba(230, 184, 116, .9) 0%, rgba(230, 184, 116, .35) 45%, transparent 70%); animation: ripple .7s ease-out forwards; }
+.pill--dark .ripple { background: radial-gradient(circle, rgba(255, 236, 200, .7) 0%, rgba(230, 184, 116, .3) 45%, transparent 70%); }
+@keyframes ripple { to { transform: scale(1); opacity: 0; } }
 .pill:focus-visible, button:focus-visible, a:focus-visible, summary:focus-visible { outline: 3px solid var(--honey); outline-offset: 3px; }
 .ico { width: 20px; height: 20px; flex: none; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -298,4 +322,6 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition: none !important; }
+  .pill, .pill::after { animation: none !important; }
+  .pill::after, .ripple { display: none; }
 }

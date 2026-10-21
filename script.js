@@ -34,6 +34,23 @@ document.querySelectorAll('.gallery__item').forEach((item) => {
 });
 box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
 
+// Волна от нажатия на кнопки
+const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.addEventListener('pointerdown', (e) => {
+  const btn = e.target.closest('.pill');
+  if (!btn || calm) return;
+  const r = btn.getBoundingClientRect();
+  const size = Math.max(r.width, r.height) * 2.2;
+  const dot = document.createElement('span');
+  dot.className = 'ripple';
+  dot.style.width = dot.style.height = size + 'px';
+  dot.style.left = (e.clientX - r.left - size / 2) + 'px';
+  dot.style.top = (e.clientY - r.top - size / 2) + 'px';
+  btn.appendChild(dot);
+  dot.addEventListener('animationend', () => dot.remove());
+  setTimeout(() => dot.remove(), 1000);
+});
+
 // Метрика: загружается только после согласия посетителя
 function loadMetrika() {
   (function (m, e, t, r, i, k, a) {
