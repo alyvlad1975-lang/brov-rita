@@ -1,0 +1,10 @@
+# Старая версия сайта: в ней адрес, который убран с сайта
+index_v1.html
+styles_v1.css
+# Неиспользуемые фото
+img/master.webp
+img/studio-paradny.webp
+# Системные файлы
+Thumbs.db
+desktop.ini
+.DS_Store

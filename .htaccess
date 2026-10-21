@@ -1,0 +1,28 @@
+# Настройки для хостинга на Apache (Timeweb, Beget, REG.RU и т. п.). На других серверах файл игнорируется.
+
+# Не показывать список файлов в папках
+Options -Indexes
+
+# Перенаправление на HTTPS: включить (убрать # в трёх строках) ПОСЛЕ того, как на хостинге выпущен SSL-сертификат
+# RewriteEngine On
+# RewriteCond %{HTTPS} off
+# RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_headers.c>
+  # Запрет встраивать сайт в чужие страницы (защита от кликджекинга)
+  Header always set X-Frame-Options "DENY"
+  Header always set Content-Security-Policy "frame-ancestors 'none'"
+  # Браузер не угадывает тип файлов
+  Header always set X-Content-Type-Options "nosniff"
+  # Сколько информации о странице передавать при переходе по ссылкам
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  # Запрет доступа к камере, микрофону, геолокации
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # HSTS: включить вместе с перенаправлением на HTTPS
+  # Header always set Strict-Transport-Security "max-age=31536000"
+</IfModule>
+
+# Служебные файлы не отдавать
+<FilesMatch "^\.(git|ht)">
+  Require all denied
+</FilesMatch>

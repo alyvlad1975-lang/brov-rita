@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# ЗАПОЛНИТЬ: заменить example.ru на домен сайта
+Sitemap: https://example.ru/sitemap.xml
