@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# ЗАПОЛНИТЬ: заменить example.ru на домен сайта
-Sitemap: https://example.ru/sitemap.xml
+Sitemap: https://alyvlad1975-lang.github.io/brov-rita/sitemap.xml
