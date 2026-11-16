@@ -4,6 +4,10 @@ styles_v1.css
 # Неиспользуемые фото
 img/master.webp
 img/studio-paradny.webp
+# Полный мокап в PNG (в репозитории оставляем JPG для превью)
+portfolio/mockup.png
+# Исходник фото дома, на сайт идёт WebP
+Струве8к2png.png
 # Системные файлы
 Thumbs.db
 desktop.ini
