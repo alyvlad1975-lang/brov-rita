@@ -1,5 +1,5 @@
-// Номер счётчика Яндекс Метрики. Пока пусто: Метрика и уведомление о cookie отключены.
-const METRIKA_ID = '';
+// Номер счётчика Яндекс Метрики (Вебвизор, карта кликов, внешние ссылки, точный отказ).
+const METRIKA_ID = '114333108';
 
 // Вкладки прайса
 const tabs = document.querySelectorAll('[role="tab"]');
@@ -59,7 +59,7 @@ function loadMetrika() {
     k = e.createElement(t); a = e.getElementsByTagName(t)[0];
     k.async = 1; k.src = r; a.parentNode.insertBefore(k, a);
   })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
-  ym(METRIKA_ID, 'init', { clickmap: true, trackLinks: true, accurateTrackBounce: true });
+  ym(METRIKA_ID, 'init', { webvisor: true, clickmap: true, trackLinks: true, accurateTrackBounce: true });
 }
 function goal(name) { if (window.ym && METRIKA_ID) ym(METRIKA_ID, 'reachGoal', name); }
 
