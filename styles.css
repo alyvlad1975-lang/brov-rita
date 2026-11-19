@@ -45,9 +45,8 @@ p { margin: 0 0 1em; }
 .head--row { display: grid; gap: 8px; align-items: end; }
 
 /* Плашки-метки */
-.tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: .78rem; font-weight: 600; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--accent-ink); }
-.tag::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.tag { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: .8rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--accent-ink); }
 .tag--glass { padding: 6px 14px; border-radius: 999px; background: rgba(255, 255, 255, .12); border: 1px solid rgba(255, 255, 255, .22);
   color: var(--cream); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 
