@@ -100,7 +100,7 @@ p { margin: 0 0 1em; }
 .nav__in { max-width: 1216px; margin: 0 auto; display: flex; align-items: center; gap: 20px; padding: 8px 8px 8px 16px; border-radius: 999px;
   background: rgba(31, 23, 18, .55); border: 1px solid rgba(255, 255, 255, .14); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); color: var(--cream); }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; font-family: var(--serif); font-size: 1.15rem; white-space: nowrap; }
-@media (max-width: 699px) { .hero__bg { object-position: 50% 20%; } }
+@media (max-width: 699px) { .hero__bg { object-position: 50% 30%; } }
 .brand__mark { width: 30px; height: 30px; color: var(--honey); }
 .nav__links { display: none; gap: 24px; }
 .nav__links a { text-decoration: none; font-size: .93rem; color: #e3d5c4; }
@@ -109,7 +109,7 @@ p { margin: 0 0 1em; }
 /* Первый экран */
 .hero { position: relative; margin: 8px; min-height: calc(100svh - 16px); border-radius: var(--r-lg); overflow: hidden; color: var(--cream);
   display: flex; flex-direction: column; justify-content: flex-end; gap: 20px; padding: 110px 20px 20px; background: var(--night); }
-.hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 25%;
+.hero__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%;
   filter: sepia(.35) saturate(1.15) brightness(.8); }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31,23,18,.55) 0%, rgba(31,23,18,.15) 35%, rgba(31,23,18,.85) 100%); }
 .hero__glow { position: absolute; inset: 0; z-index: 1; pointer-events: none;
