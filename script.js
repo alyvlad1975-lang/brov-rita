@@ -74,7 +74,9 @@ if (METRIKA_ID) {
   if (choice === 'yes') loadMetrika();
   if (!choice) {
     const banner = document.getElementById('cookie');
-    banner.hidden = false;
+    const showBanner = () => { banner.hidden = false; };
+    if (window.scrollY > 320) showBanner();
+    else window.addEventListener('scroll', showBanner, { once: true, passive: true });
     banner.addEventListener('click', (e) => {
       const btn = e.target.closest('[data-cookie]');
       if (!btn) return;
