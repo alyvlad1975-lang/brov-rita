@@ -190,6 +190,9 @@ p { margin: 0 0 1em; }
 .photo--tall img { object-position: 50% 15%; }
 .photo figcaption { position: absolute; left: 12px; bottom: 12px; padding: 6px 14px; border-radius: 999px; font-size: .85rem; }
 .about__text p:not(.todo) { font-size: 1.08rem; }
+.about__list { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 10px; }
+.about__list li { position: relative; padding-left: 30px; font-size: 1.08rem; }
+.about__list li::before { content: "//"; position: absolute; left: 0; top: 0; color: var(--accent-ink); font-weight: 600; letter-spacing: -.06em; }
 .about__how h3 { font-size: 1.5rem; font-weight: 300; }
 .ticks { list-style: none; padding: 0; margin: 0; }
 .ticks li { padding: 12px 0 12px 30px; position: relative; border-bottom: 1px solid rgba(255, 255, 255, .12); color: #e3d5c4; }
@@ -305,7 +308,7 @@ p { margin: 0 0 1em; }
   .bento--about { grid-template-columns: 1.1fr 1fr 1fr; grid-template-rows: auto auto; }
   .bento--about .photo--tall { grid-row: span 2; min-height: 640px; }
   .bento--about .about__text { grid-column: 2 / 4; }
-  .bento--about .about__how { grid-column: 2; grid-row: 2; }
+  .bento--about .about__how { grid-column: 2 / 4; grid-row: 2; }
   .bento--about .photo:not(.photo--tall) { grid-column: 3; }
   .reviews { grid-auto-columns: calc((100% - 24px) / 3); }
   .faq-wrap { grid-template-columns: 380px 1fr; gap: 64px; }
